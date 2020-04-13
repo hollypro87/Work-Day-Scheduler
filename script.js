@@ -4,7 +4,23 @@ var hourInfo;
 
 console.log(m.format("dddd, MMMM Do"));
 
-$("#currentDay").text(m.format("dddd, MMMM Do"));
+$("#currentDay").ready(function(){
+	var date=new Date();
+	$("#btn1").click(function(){
+		var val=date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear();
+		$("#printDate").text(val);
+	});
+	$("#btn2").click(function(){
+		var val=(date.getMonth()+1)+"/"+date.getDate()+"/"+date.getFullYear();
+		$("#printDate").text(val);
+	});
+	$("#btn3").click(function(){
+		var months=["JAN","FEB","MAR","APR","MAY","JUN","JUL",
+		"AUG","SEP","OCT","NOV","DEC"];
+		var val=date.getDate()+" "+months[date.getMonth()]+" "+date.getFullYear();
+		$("#printDate").text(val);
+	});				
+});
 
 
 $(document).ready( function() {
